@@ -2,14 +2,14 @@ import 'package:dio/dio.dart';
 
 class ApiService{
 
-  final baseUrl ='https://fakestoreapi.com/products';
-  late Dio dio;
+  final _baseUrl ='https://fakestoreapi.com/products';
+  final Dio _dio;
 
-  ApiService();
+  ApiService(this._dio);
 
-  Future<Map<String,dynamic>> getItem ({required String endPoint})async{
-    var response = await dio.get("$endPoint$endPoint");
-    print(response.data);
+  Future<Map<String,dynamic>> get ({required String baseUrl})async{
+    var response = await _dio.get("$_baseUrl");
+    // print(response.data);
     return response.data;
 }
 }

@@ -12,9 +12,9 @@ class itemsCubit extends Cubit<itemsStates> {
   void getItems({required String baseUrl}) async {
     emit(itemsLoading());
     try {
-        items= await apiService.getItem(endPoint: baseUrl);
+        items= await apiService.get(baseUrl: 'https://fakestoreapi.com/products');
       emit(itemsSuccess());
-    } on Exception catch (e) {
+    }  catch (e) {
       emit(itemsFaliur());
     }
   }
